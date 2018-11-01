@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/footstone-api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${catalina.base}/logs/footstone-api.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="file"/>
+    </root>
+
+    <logger name="jdbc.sqlonly" level="INFO">
+        <appender-ref ref="file"/>
+    </logger>
+    <logger name="jdbc.audit" level="error">
+        <appender-ref ref="file"/>
+    </logger>
+    <logger name="jdbc.resultset" level="error">
+        <appender-ref ref="file"/>
+    </logger>
+    <logger name="jdbc.connection" level="error">
+        <appender-ref ref="file"/>
+    </logger>
+
+</configuration>

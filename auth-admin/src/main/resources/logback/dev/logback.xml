@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="stdout"/>
+    </root>
+
+    <logger name="jdbc.sqlonly" level="warn">
+        <appender-ref ref="stdout"/>
+    </logger>
+
+    <logger name="jdbc.sqltiming" level="warn">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <logger name="jdbc.audit" level="error">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <logger name="jdbc.resultset" level="error">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <logger name="jdbc.connection" level="error">
+        <appender-ref ref="stdout"/>
+    </logger>
+
+</configuration>
